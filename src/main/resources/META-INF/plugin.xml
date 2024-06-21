@@ -1,0 +1,70 @@
+<!--
+  ~ Copyright 2024 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>zhong.GGPlugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>GG Plugin</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+        <group popup="true" id="gg.plugin.GgCodeGroup"
+               class="gg.plugin.GgCodeGroup" text="GG Code" description="GG Code">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <action id="gg.plugin.LogCodeGenerator" class="gg.plugin.LogCodeGenerator"
+                    text="插入日志代码" description="在方法开头插入日志代码">
+            </action>
+            <action id="gg.plugin.CopyUrl" class="gg.plugin.CopyUrl"
+                    text="拷贝Url" description="拷贝Controller方法Url">
+            </action>
+            <action id="gg.plugin.CopyUrlParam" class="gg.plugin.CopyUrlParam"
+                    text="拷贝Url参数" description="拷贝Controller方法Url参数">
+            </action>
+            <action id="gg.plugin.CopyJson" class="gg.plugin.CopyJson"
+                    text="拷贝Json" description="拷贝Public类所有属性为Json">
+            </action>
+            <action id="gg.plugin.CopyControllerParam" class="gg.plugin.CopyControllerParam"
+                    text="拷贝Controller参数代码" description="拷贝Public类所有属性为Controller方法参数代码">
+            </action>
+        </group>
+    </actions>
+
+</idea-plugin>
